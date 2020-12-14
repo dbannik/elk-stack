@@ -3,7 +3,7 @@
 ## filebeat_monitoring
 
 ### Cluster
-`monitoring`
+`monitor`
 
 ### Indices
 `create_index` on `.monitoring-beats-*`
