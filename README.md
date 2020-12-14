@@ -1,11 +1,11 @@
 # elk-stack
 
-Init
+## Initialize
 ```shell script
 cp -n .env.dist .env
 ```
 
-Run Elasticsearch and Kibana
+## Run Elasticsearch and Kibana
 ```shell script
 docker-compose -f docker-compose.yml -f docker-compose.kibana.yml up -d
 ```
