@@ -15,3 +15,6 @@ docker-compose -f docker-compose.yml -f docker-compose.kibana.yml up -d
 echo "docker-compose -f docker-compose.yml -f docker-compose.kibana.yml \$@" > ./docker-compose
 chmod +x ./docker-compose
 ```
+
+* [filebeat configuration example](/doc/filebeat-config-example.md)
+* [filebeat roles example](/doc/filebeat-roles.md)
