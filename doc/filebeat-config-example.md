@@ -4,13 +4,13 @@
 ```yaml
 filebeat.config:
   inputs:
-    enabled: false
-    path: /etc/filebeat/inputs.d/*.yml
+    enabled: true
+    path: inputs.d/*.yml
     reload.enabled: true
     reload.period: 10s
   modules:
     enabled: true
-    path: /etc/filebeat/modules.d/*.yml
+    path: modules.d/*.yml
     reload.enabled: true
     reload.period: 10s
 
@@ -23,10 +23,6 @@ output:
       - index: "filebeat-apache2-domains2-by-%{[agent.version]}-%{+yyyy.MM.dd}"
         when.contains:
           log.file.path: "/var/log/apache2/domains2.by"
-
-      - index: "filebeat-app-%{[agent.version]}-%{+yyyy.MM.dd}"
-        when.contains:
-          log.file.path: "/app/var/log/"
 
       - index: "filebeat-mysql-%{[agent.version]}-%{+yyyy.MM.dd}"
         when.contains:
@@ -46,10 +42,8 @@ output:
 - type: log
   paths:
     - /app/var/log/*.log
-  json:
-    keys_under_root: true
-    message_key: message
-    overwrite_keys: true
+  index: "app-filebeat-%{[agent.version]}-%{+yyyy.MM.dd}"
+  pipeline: "monolog"
 ```
 
 `/etc/filebeat/modules.d/apache.yml`

@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:$ELASTIC_VERSION
+    environment:
+      ELASTICSEARCH_URL: $ELASTICSEARCH_URL
+      ELASTICSEARCH_USERNAME: $ELASTICSEARCH_USERNAME
+      ELASTICSEARCH_PASSWORD: $ELASTICSEARCH_PASSWORD
+      TZ: $TIMEZONE
+    volumes:
+      - ./config/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      - ./config/filebeat/inputs.d/:/usr/share/filebeat/inputs.d/:ro
+      - ./config/filebeat/modules.d/:/usr/share/filebeat/modules.d/:ro
