@@ -18,3 +18,4 @@ chmod +x ./docker-compose
 
 * [filebeat configuration example](/doc/filebeat-config-example.md)
 * [filebeat roles example](/doc/filebeat-roles.md)
+* [monolog pipeline](/doc/monolog-pipeline.md)
